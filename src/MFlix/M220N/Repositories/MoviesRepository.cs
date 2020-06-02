@@ -197,9 +197,9 @@ namespace M220N.Repositories
 
             // TODO Ticket: Enable filtering of movies by genre.
             // If you get stuck see the ``GetMoviesByCastAsync`` method above.
-            /*return await _moviesCollection
-               .Find(...)
-               .ToListAsync(cancellationToken);*/
+            return await _moviesCollection
+               .Find(Builders<Movie>.Filter.In("genres", genres))
+               .ToListAsync(cancellationToken);
 
             // // TODO Ticket: Paging
             // TODO Ticket: Paging
